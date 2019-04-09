@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { Map as Amap, Markers, Polyline } from 'react-amap'
+import { Switch } from 'antd'
 
 class GaodeMap extends Component {
   constructor (props) {
     super(props)
     this.mapPlugins = ['Scale', 'ToolBar']
+    this.state = {
+      showPin: true
+    }
   }
 
   renderMarkerLayout (extData) {
@@ -17,6 +21,10 @@ class GaodeMap extends Component {
     }
     let title = extData.position.longitude + ', ' + extData.position.latitude
     return <div style={style} />
+  }
+
+  onPinSwitchChange (checked) {
+    this.setState({...this.state, showPin: checked})
   }
 
   render () {
@@ -35,8 +43,10 @@ class GaodeMap extends Component {
           <Markers
             markers={this.props.path.map((pos, index) => { return {position: pos, index: index} })}
             // render={this.renderMarkerLayout}
+            visible={this.state.showPin}
           />
         </Amap>
+        <div><Switch checked={this.state.showPin} onChange={(checked) => (this.onPinSwitchChange(checked))} />显示坐标点</div>
       </div>
     )
   }
