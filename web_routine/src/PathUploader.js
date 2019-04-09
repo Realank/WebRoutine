@@ -30,8 +30,6 @@ class PathUploader extends Component {
     }, 2000)
   }
 
-
-
   render () {
     const { uploading, fileList } = this.state
     const props = {
@@ -63,7 +61,7 @@ class PathUploader extends Component {
     }
 
     return (
-      <div style={{width: '50%'}}>
+      <div>
         <Dragger {...props} >
           <p className='ant-upload-drag-icon'>
             <Icon type='inbox' />
