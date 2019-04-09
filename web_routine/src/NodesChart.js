@@ -1,6 +1,10 @@
 import React, { Component } from 'react'
 
-import ReactEcharts from 'echarts-for-react'
+import ReactEchartsCore from 'echarts-for-react/lib/core'
+import echarts from 'echarts/lib/echarts'
+import 'echarts/lib/chart/line'
+import 'echarts/lib/component/tooltip'
+import 'echarts/lib/component/title'
 
 class NodesChart extends Component {
   render () {
@@ -17,7 +21,8 @@ class NodesChart extends Component {
         data: this.props.nodes
       }]
     }
-    return (<ReactEcharts
+    return (<ReactEchartsCore
+      echarts={echarts}
       option={opt}
       // notMerge={true}
       // lazyUpdate={true}
