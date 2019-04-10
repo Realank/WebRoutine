@@ -34,7 +34,7 @@ class App extends Component {
         <Layout>
           <Header style={{color: 'white', fontSize: '25px' }}>路径展示</Header>
           <Layout>
-            <Sider>
+            <Sider style={{backgroundColor: '#5597d9'}}>
               <PathUploader onSelectFile={this.handleRead.bind(this)} />
             </Sider>
             <Content style={{padding: '10px'}}>
