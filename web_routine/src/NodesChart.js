@@ -14,7 +14,7 @@ class NodesChart extends Component {
       xAxis: {
         data: this.props.nodes.map((node, index) => { return '' + index })
       },
-      yAxis: {},
+      yAxis: {min: 'dataMin'},
       series: [{
         // name: '销量',
         type: 'line',

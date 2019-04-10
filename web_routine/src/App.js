@@ -32,7 +32,7 @@ class App extends Component {
     return (
       <div>
         <Layout>
-          <Header style={{color: 'white', fontSize: '25px'}}>路径展示</Header>
+          <Header style={{color: 'white', fontSize: '25px' }}>路径展示</Header>
           <Layout>
             <Sider>
               <PathUploader onSelectFile={this.handleRead.bind(this)} />
