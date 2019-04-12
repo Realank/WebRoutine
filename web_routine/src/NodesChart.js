@@ -8,18 +8,36 @@ import 'echarts/lib/component/title'
 
 class NodesChart extends Component {
   render () {
-    let opt = {
-      title: { text: this.props.title },
-      tooltip: {},
-      xAxis: {
-        data: this.props.nodes.map((node, index) => { return '' + index })
-      },
-      yAxis: {min: 'dataMin'},
-      series: [{
-        // name: '销量',
-        type: 'line',
-        data: this.props.nodes
-      }]
+    let opt = null
+    if (!this.props.nodes2) {
+      opt = {
+        title: { text: this.props.title },
+        tooltip: {},
+        xAxis: {
+          data: this.props.nodes.map((node, index) => { return '' + index })
+        },
+        yAxis: {scale: true},
+        series: [{
+          type: 'line',
+          data: this.props.nodes
+        }]
+      }
+    } else {
+      opt = {
+        title: { text: this.props.title },
+        tooltip: {},
+        xAxis: {
+          data: this.props.nodes.map((node, index) => { return '' + index })
+        },
+        yAxis: {scale: true},
+        series: [{
+          type: 'line',
+          data: this.props.nodes
+        }, {
+          type: 'line',
+          data: this.props.nodes2
+        }]
+      }
     }
     return (<ReactEchartsCore
       echarts={echarts}
